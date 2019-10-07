@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mass Lottery</title>
+<body>
+<input type = "interger" id="num1" value = "number 1 enter">
+<input type = "interger" id="num2" value = "number 2 enter">
+<button onclick="readdisplay()">Amicable?</button>
+<script language="javascript" type="text/javascript">
+function readdisplay() {
+  var numberone = document.getElementById("num1").value;
+  var numbertwo = document.getElementById("num2").value;
+  document.write (numberone + " <br>");
+  document.write (numbertwo + " <br>");
+  isAmicable(numberone,numbertwo);
+}
+  //use either nums from before or new ones that will be parameters
+  //num is num1, test number is num2
+function isFactor(num1, num2) {
+  var remainder = num1 % num2;
+  return remainder == 0;
+}
+//console.log(isFactor(4,2));
+//console.log(isFactor(2,2));
+//console.log(isFactor(4,3));
+
+function showFactors(ray){
+  for (var i = 0; i < ray.length; i++) {
+    document.write(ray[i]+ " ");
+  }
+}
+//showFactors([10, 22, 11]);
+function addFactors(ray){
+  var sum = 0;
+  for (var i = 0; i<ray.length; i++){
+    sum = sum + ray [i];
+  }
+  return sum;
+}
+//console.log(addFactors([2,2,3]));
+//console.log(addFactors([2,-2,3]));
+
+function getFactors(n){
+  var factors = [];
+  for (var i = 0; i < n; i++){
+    if(n%i == 0) {
+      factors.push(i);
+    }
+  }
+  return factors;
+}
+//console.log(getFactors(4));
+//console.log(getFactors(73));
+//console.log(getFactors(64));
+
+function isAmicable(n1,n2){
+  var factors1 = getFactors(n1);
+  var factors2 = getFactors(n2);
+  var sum1 = addFactors(factors1);
+  var sum2 = addFactors(factors2);
+  //showFactors(factors1);
+  //showFactors(factors2);
+  if ((sum1==n2)&& (sum2==n1)) {
+    document.write("amicable");
+  }
+  else {
+    document.write("not amicable");
+  }
+}
+
+
+
+
+</script>
+</body>
+</html>
